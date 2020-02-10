@@ -18,34 +18,34 @@
 // Defines the keycodes used by our macros in process_record_user
 // enum custom_keycodes { QMKBEST = SAFE_RANGE, QMKURL };
 
+enum custom_keycodes {
+    HS_PCB = SAFE_RANGE,
+    HS_CASE
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(/* Base */
-                 KC_7, KC_8, KC_9,
-                 KC_4, KC_5, KC_6,
-                 KC_1, KC_2, KC_3,
-                 KC_0, KC_DOT, KC_ENT)
+                 XXXXXXX,  XXXXXXX,  XXXXXXX,
+                 XXXXXXX,  XXXXXXX,  XXXXXXX,
+                 HS_PCB,   HS_CASE,  XXXXXXX,
+                 XXXXXXX,  XXXXXXX,  XXXXXXX)
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    // switch (keycode) {
-    //     case QMKBEST:
-    //         if (record->event.pressed) {
-    //             // when keycode QMKBEST is pressed
-    //             SEND_STRING("QMK is the best thing ever!");
-    //         } else {
-    //             // when keycode QMKBEST is released
-    //         }
-    //         break;
-    //     case QMKURL:
-    //         if (record->event.pressed) {
-    //             // when keycode QMKURL is pressed
-    //             SEND_STRING("https://qmk.fm/" SS_TAP(X_ENTER));
-    //         } else {
-    //             // when keycode QMKURL is released
-    //         }
-    //         break;
-    // }
-    // return true;
+    switch (keycode) {
+        case HS_PCB:
+            if (record->event.pressed) {
+                SEND_STRING("853400");
+            } else {
+            }
+            break;
+        case HS_CASE:
+            if (record->event.pressed) {
+                SEND_STRING("847160");
+            } else {
+            }
+            break;
+    }
     return true;
 }
 
